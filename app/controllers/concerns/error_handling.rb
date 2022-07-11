@@ -1,5 +1,5 @@
 module ErrorHandling
-  extend ActiveSupport::Conscern
+  extend ActiveSupport::Concern
 
   included do
     rescue_from ActiveRecord::RecordNotFound, with: :notfound
