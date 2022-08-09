@@ -8,7 +8,7 @@ module Authentication
     private
 
     def current_user
-      user = if session[:user_id].present? ? user_from_session : user_from_token
+      user = session[:user_id].present? ? user_from_session : user_from_token
 
       @current_user ||= user&.decorate
     end
@@ -21,7 +21,7 @@ module Authentication
       user = User.find_by(id: cookies.encrypted[:user_id])
       token = cookies.encrypted[:remember_token]
 
-      return unles user&.remember_token_authenticated?(token)
+      return unless user&.remember_token_authenticated?(token)
 
       sign_in(user)
       user

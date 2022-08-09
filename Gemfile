@@ -17,6 +17,11 @@ gem 'sass-rails', '>= 6'
 gem 'turbolinks', '~> 5'
 gem 'valid_email2', '~> 4.0'
 gem 'webpacker', '~> 5.0'
+gem 'activerecord-import', '~> 1.2'
+gem 'rubyXL', '~> 3.4'
+gem 'rubyzip', '~> 2'
+gem 'caxlsx', '~> 3.1'
+gem 'caxlsx_rails', '~> 0.6'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

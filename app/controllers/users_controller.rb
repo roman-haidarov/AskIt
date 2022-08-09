@@ -22,6 +22,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new user_params
+    
     if @user.save
       sign_in @user
       flash[:success] = "Welcome to the app, #{current_user.name_or_email}!"
@@ -38,6 +39,9 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:email, :name, :password, :password_confirmation, :old_password)
+    params.require(:user).permit(
+      :email, :name, :familyname, :password,
+      :password_confirmation, :old_password
+    )
   end
 end
